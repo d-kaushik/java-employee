@@ -1,2 +1,32 @@
-spring.application.name: employee-api
-server.port: 8111
+spring:
+  application:
+    name: employee-api
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+server:
+  port: 8111
+
+# Employee service configuration
+employee:
+  service:
+    base-url: http://localhost:8112
+    timeout: 5000
+
+# Logging configuration
+logging:
+  level:
+    com.reliaquest.api: INFO
+    org.springframework.web.client: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+
+# Management endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always

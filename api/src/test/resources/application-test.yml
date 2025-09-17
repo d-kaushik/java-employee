@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: employee-api-test
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+server:
+  port: 0  # Random port for testing
+
+# Employee service configuration for testing
+employee:
+  service:
+    base-url: http://localhost:8112
+    timeout: 2000
+
+# Logging configuration for tests
+logging:
+  level:
+    com.reliaquest.api: DEBUG
+    org.springframework.web.client: INFO
+    org.springframework.test: INFO
+  pattern:
+    console: "%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
